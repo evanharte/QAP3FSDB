@@ -1,3 +1,8 @@
+-- to build the json object within pgadmin
+SELECT json_agg(json_build_object('id', id, 'title', title, 'artist', artist, 'album', album, 'duration', duration)) AS json_data
+	FROM public."Playlist";
+
+-- to insert data into the table
 INSERT INTO public."Playlist"(
 	title, artist, album, duration)
 	VALUES ('No Reply', 'Beatles', 'Beatles For Sale', '2:15');

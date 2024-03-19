@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "title": "No Reply",
+    "artist": "Beatles",
+    "album": "Beatles For Sale",
+    "duration": "2:15"
+  },
+  {
+    "id": 2,
+    "title": "I'm a Loser",
+    "artist": "Beatles",
+    "album": "Beatles For Sale",
+    "duration": "2:30"
+  },
+  {
+    "id": 3,
+    "title": "Mr. Moonlight",
+    "artist": "Beatles",
+    "album": "Beatles For Sale",
+    "duration": "2:38"
+  },
+  {
+    "id": 4,
+    "title": "Eight Days a Week",
+    "artist": "Beatles",
+    "album": "Beatles For Sale",
+    "duration": "2:43"
+  },
+  {
+    "id": 5,
+    "title": "A Hard Day's Night",
+    "artist": "Beatles",
+    "album": "A Hard Day's Night",
+    "duration": "2:33"
+  },
+  {
+    "id": 6,
+    "title": "Can't Buy Me Love",
+    "artist": "Beatles",
+    "album": "A Hard Day's Night",
+    "duration": "2:12"
+  },
+  {
+    "id": 7,
+    "title": "Captain Fantastic and the Brown Dirt Cowboy",
+    "artist": "Elton John",
+    "album": "Captain Fantastic and the Brown Dirt Cowboy",
+    "duration": "5:46"
+  },
+  {
+    "id": 8,
+    "title": "Tower of Babel",
+    "artist": "Elton John",
+    "album": "Captain Fantastic and the Brown Dirt Cowboy",
+    "duration": "4:28"
+  },
+  {
+    "id": 9,
+    "title": "I'm Still Standing",
+    "artist": "Elton John",
+    "album": "Too Low For Zero",
+    "duration": "3:02"
+  },
+  {
+    "id": 10,
+    "title": "I Guess That's Why They Call It the Blues",
+    "artist": "Elton John",
+    "album": "Too Low For Zero",
+    "duration": "4:41"
+  },
+  {
+    "id": 11,
+    "title": "Hi Dee Dee",
+    "artist": "Ty Segall",
+    "album": "Three Bells",
+    "duration": "3:11"
+  },
+  {
+    "id": 12,
+    "title": "My Best Friend",
+    "artist": "Ty Segall",
+    "album": "Three Bells",
+    "duration": "3:16"
+  },
+  {
+    "id": 13,
+    "title": "City Song",
+    "artist": "Everything Everything",
+    "album": "Mountainhead",
+    "duration": "3:14"
+  },
+  {
+    "id": 14,
+    "title": "Enter the Mirror",
+    "artist": "Everything Everything",
+    "album": "Mountainhead",
+    "duration": "3:42"
+  },
+  {
+    "id": 15,
+    "title": "Last Peace",
+    "artist": "Thee Oh Sees",
+    "album": "Smote Reverser",
+    "duration": "7:41"
+  }
+]
