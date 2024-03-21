@@ -17,9 +17,9 @@ var getSongs = function () {
 };
 
 // var getSongById = function (id) {
-//   if (DEBUG) console.log("logins.pg.dal.getLoginByLoginId()");
+//   if (DEBUG) console.log("pg.playlist.dal.getSongById()");
 //   return new Promise(function (resolve, reject) {
-//     const sql = `SELECT id AS _id, username, password, email, uuid FROM public."Logins" \
+//     const sql = `SELECT id, title, artist, album, duration FROM public."Playlist"
 //     WHERE id = $1;`;
 //     dal.query(sql, [id], (err, result) => {
 //       if (err) {
@@ -31,6 +31,18 @@ var getSongs = function () {
 //     });
 //   });
 // };
+
+async function getSongById(id) {
+  if (DEBUG) console.log("pg.playlist.dal.getSongById()");
+  const sql = `SELECT id, title, artist, album, duration FROM public."Playlist" WHERE id = $1;`;
+  try {
+    let result = await dal.query(sql, [id]);
+    return result.rows[0];
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
 
 // var addSong = function (username, password, email, uuid) {
 //   if (DEBUG) console.log("logins.pg.dal.addLogin()");
@@ -80,7 +92,7 @@ var getSongs = function () {
 module.exports = {
   getSongs,
   // addSong,
-  // getSongById,
+  getSongById,
   // patchSong,
   // deleteSong,
 };

@@ -1,0 +1,14 @@
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <%- include('./partials/nav.ejs') %>
+    <div class="song content">
+      <h2>Song:</h2>
+      <h4>title: <%= aSong.title %></h4>
+      <h4>artist: <%= aSong.artist %></h4>
+      <h4>album: <%= aSong.album %></h4>
+      <h4>duration: <%= aSong.duration %></h4>
+    </div>
+  </body>
+  <%- include('./partials/foot.ejs') %>
+</html>

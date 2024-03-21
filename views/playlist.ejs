@@ -4,10 +4,19 @@
         <%- include('./partials/nav.ejs') %>
         <div class="playlist content">
             <form action="/playlist" method="POST">
-                <b>Playlist: </b></br> 
+                <u><b>Your Playlist: </b></u></br><br> 
             <% if (thePlaylist.length > 0) { %>
                 <% thePlaylist.forEach(song => { %>
-                    <b><%= song.title %></b>
+                    <% if (song.id < 10) { %>
+                        <%= "0" + song.id + "." %>
+                    <% } else { %> 
+                        <%= song.id + "." %>
+                    <% } %>
+                    <%= song.artist + " - "%>
+                    <%= "\"" + song.title + "\""%>
+                    <%= " - " %>
+                    <i><%=song.album %></i>
+                    <%= " (" + song.duration + ") "%>
                     <a href="/playlist/<%=song.id%>/edit?title=<%=song.title%>&artist=<%=song.artist%>">edit</a>
                     <a href="/playlist/<%=song.id%>/delete?title=<%=song.title%>">delete</a></br> 
                     <% }) %>

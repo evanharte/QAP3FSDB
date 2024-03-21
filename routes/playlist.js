@@ -12,19 +12,19 @@ router.get("/", async (req, res) => {
   }
 });
 
-// router.get("/:id", async (req, res) => {
-//   // const aLogin = [
-//   //   { id: 1, username: "example", password: "example" }
-//   // ];
-//   try {
-//     let aLogin = await loginsDal.getLoginByLoginId(req.params.id); // from postgres
-//     if (DEBUG) console.table(aLogin);
-//     if (aLogin.length === 0) res.render("norecord");
-//     else res.render("login", { aLogin });
-//   } catch {
-//     res.render("503");
-//   }
-// });
+router.get("/:id", async (req, res) => {
+  try {
+    let aSong = await playlistDal.getSongById(req.params.id);
+    if (aSong === undefined) {
+      res.render("norecord");
+    } else {
+      if (DEBUG) console.table(aSong);
+      res.render("song", { aSong });
+    }
+  } catch (err) {
+    res.render("503");
+  }
+});
 
 // router.get("/:id/edit", async (req, res) => {
 //   if (DEBUG) console.log("login.Edit : " + req.params.id);
