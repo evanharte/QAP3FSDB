@@ -44,21 +44,21 @@ router.get("/:id", async (req, res) => {
 //   });
 // });
 
-// router.post("/", async (req, res) => {
-//   if (DEBUG) console.log("logins.POST");
-//   try {
-//     await loginsDal.addLogin(
-//       req.body.username,
-//       req.body.password,
-//       req.body.email,
-//       uuid.v4()
-//     );
-//     res.redirect("/logins/");
-//   } catch (err) {
-//     // if (DEBUG) console.log(err);
-//     res.render("503");
-//   }
-// });
+router.post("/", async (req, res) => {
+  if (DEBUG) console.log("playlist.POST");
+  try {
+    await playlistDal.addSong(
+      req.body.title,
+      req.body.artist,
+      req.body.album,
+      req.body.duration
+    );
+    res.redirect("/playlist/");
+  } catch (err) {
+    // if (DEBUG) console.log(err);
+    res.render("503");
+  }
+});
 
 // router.patch("/:id", async (req, res) => {
 //   if (DEBUG) console.log("logins.PATCH: " + req.params.id);

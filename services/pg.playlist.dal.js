@@ -4,7 +4,7 @@ var getSongs = function () {
   if (DEBUG) console.log("logins.pg.dal.getLogins()");
   return new Promise(function (resolve, reject) {
     const sql = `SELECT id, title, artist, album, duration FROM public."Playlist" \ 
-    ORDER BY id ASC LIMIT 15;`;
+    ORDER BY id DESC;`;
     dal.query(sql, [], (err, result) => {
       if (err) {
         if (DEBUG) console.log(err);
@@ -15,22 +15,6 @@ var getSongs = function () {
     });
   });
 };
-
-// var getSongById = function (id) {
-//   if (DEBUG) console.log("pg.playlist.dal.getSongById()");
-//   return new Promise(function (resolve, reject) {
-//     const sql = `SELECT id, title, artist, album, duration FROM public."Playlist"
-//     WHERE id = $1;`;
-//     dal.query(sql, [id], (err, result) => {
-//       if (err) {
-//         if (DEBUG) console.log(err);
-//         reject(err);
-//       } else {
-//         resolve(result.rows);
-//       }
-//     });
-//   });
-// };
 
 async function getSongById(id) {
   if (DEBUG) console.log("pg.playlist.dal.getSongById()");
@@ -44,22 +28,19 @@ async function getSongById(id) {
   }
 }
 
-// var addSong = function (username, password, email, uuid) {
-//   if (DEBUG) console.log("logins.pg.dal.addLogin()");
-//   return new Promise(function (resolve, reject) {
-//     const sql = `INSERT INTO public."Logins"(username, password, email, uuid) \
-//     VALUES ($1, $2, $3, $4)`;
-//     // the $1 and $2 are placeholders for the username and password in next line.
-//     dal.query(sql, [username, password, email, uuid], (err, result) => {
-//       if (err) {
-//         if (DEBUG) console.log(err);
-//         reject(err);
-//       } else {
-//         resolve(result.rows);
-//       }
-//     });
-//   });
-// };
+async function addSong(title, artist, album, duration) {
+  if (DEBUG) console.log("pg.playlist.dal.addSong()");
+  const sql = `INSERT INTO public."Playlist"(title, artist, album, duration) VALUES ($1, $2, $3, $4) RETURNING id;`;
+  try {
+    let result = await dal.query(sql, [title, artist, album, duration]);
+    if (DEBUG) console.log(result);
+    return result.rows[0].id;
+  } catch (error) {
+    if (error.code === "23505") return error.code;
+    console.log(error);
+    throw error;
+  }
+}
 
 // var patchSong = function (id, username, password, email) {
 //   if (DEBUG) console.log("logins.pg.dal.patchLogin()");
@@ -91,7 +72,7 @@ async function getSongById(id) {
 
 module.exports = {
   getSongs,
-  // addSong,
+  addSong,
   getSongById,
   // patchSong,
   // deleteSong,
