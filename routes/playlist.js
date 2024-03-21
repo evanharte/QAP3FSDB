@@ -26,23 +26,24 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// router.get("/:id/edit", async (req, res) => {
-//   if (DEBUG) console.log("login.Edit : " + req.params.id);
-//   res.render("loginPatch.ejs", {
-//     username: req.query.username,
-//     password: req.query.password,
-//     email: req.query.email,
-//     theId: req.params.id,
-//   });
-// });
+router.get("/:id/edit", async (req, res) => {
+  if (DEBUG) console.log("song.Edit : " + req.params.id);
+  res.render("songPatch.ejs", {
+    title: req.query.title,
+    artist: req.query.artist,
+    album: req.query.album,
+    duration: req.query.duration,
+    theId: req.params.id,
+  });
+});
 
-// router.get("/:id/delete", async (req, res) => {
-//   if (DEBUG) console.log("login.Delete : " + req.params.id);
-//   res.render("loginDelete.ejs", {
-//     username: req.query.username,
-//     theId: req.params.id,
-//   });
-// });
+router.get("/:id/delete", async (req, res) => {
+  if (DEBUG) console.log("song.Delete : " + req.params.id);
+  res.render("songDelete.ejs", {
+    title: req.query.title,
+    theId: req.params.id,
+  });
+});
 
 router.post("/", async (req, res) => {
   if (DEBUG) console.log("playlist.POST");
@@ -60,31 +61,32 @@ router.post("/", async (req, res) => {
   }
 });
 
-// router.patch("/:id", async (req, res) => {
-//   if (DEBUG) console.log("logins.PATCH: " + req.params.id);
-//   try {
-//     await loginsDal.patchLogin(
-//       req.params.id,
-//       req.body.username,
-//       req.body.password,
-//       req.body.email
-//     );
-//     res.redirect("/logins/");
-//   } catch {
-//     // log this error to an error log file.
-//     res.render("503");
-//   }
-// });
+router.patch("/:id", async (req, res) => {
+  if (DEBUG) console.log("playlist.PATCH: " + req.params.id);
+  try {
+    await playlistDal.patchSong(
+      req.params.id,
+      req.body.title,
+      req.body.artist,
+      req.body.album,
+      req.body.duration
+    );
+    res.redirect("/playlist/");
+  } catch {
+    // log this error to an error log file.
+    res.render("503");
+  }
+});
 
-// router.delete("/:id", async (req, res) => {
-//   if (DEBUG) console.log("logins.DELETE: " + req.params.id);
-//   try {
-//     await loginsDal.deleteLogin(req.params.id);
-//     res.redirect("/logins/");
-//   } catch {
-//     // log this error to an error log file.
-//     res.render("503");
-//   }
-// });
+router.delete("/:id", async (req, res) => {
+  if (DEBUG) console.log("playlist.DELETE: " + req.params.id);
+  try {
+    await playlistDal.deleteSong(req.params.id);
+    res.redirect("/playlist/");
+  } catch {
+    // log this error to an error log file.
+    res.render("503");
+  }
+});
 
 module.exports = router;

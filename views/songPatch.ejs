@@ -1,0 +1,18 @@
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+    <body>
+        <%- include('./partials/nav.ejs') %>
+        <div class="edit content">
+            <form action="/playlist/<%= locals.theId %>?_method=PATCH" method="POST">
+                <label>Edit Fields:</br>
+                    <input type="text" name="title" value="<%= locals.title %>" required>
+                    <input type="text" name="artist" value="<%= locals.artist %>" required>
+                    <input type="text" name="album" value="<%= locals.album %>" required>
+                    <input type="text" name="duration" value="<%= locals.duration %>" required>
+                </label></br>
+                <button>PATCH</button>
+            </form>
+        </div>
+    </body>
+    <%- include('./partials/foot.ejs') %>
+</html>

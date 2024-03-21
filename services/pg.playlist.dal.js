@@ -42,38 +42,36 @@ async function addSong(title, artist, album, duration) {
   }
 }
 
-// var patchSong = function (id, username, password, email) {
-//   if (DEBUG) console.log("logins.pg.dal.patchLogin()");
-//   return new Promise(function (resolve, reject) {
-//     const sql = `UPDATE public."Logins" SET username=$2, password=$3, email=$4 WHERE id=$1;`;
-//     dal.query(sql, [id, username, password, email], (err, result) => {
-//       if (err) {
-//         reject(err);
-//       } else {
-//         resolve(result.rows);
-//       }
-//     });
-//   });
-// };
+async function patchSong(id, title, artist, album, duration) {
+  if (DEBUG) console.log("pg.playlist.dal.patchSong()");
+  const sql = `UPDATE public."Playlist" SET title=$2, artist=$3, album=$4, duration=$5 WHERE id=$1;`;
+  try {
+    let result = await dal.query(sql, [id, title, artist, album, duration]);
+    if (DEBUG) console.log(result);
+    return result.rowCount;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
 
-// var deleteSong = function (id) {
-//   if (DEBUG) console.log("logins.pg.dal.deleteLogin()");
-//   return new Promise(function (resolve, reject) {
-//     const sql = `DELETE FROM public."Logins" WHERE id = $1;`;
-//     dal.query(sql, [id], (err, result) => {
-//       if (err) {
-//         reject(err);
-//       } else {
-//         resolve(result.rows);
-//       }
-//     });
-//   });
-// };
+async function deleteSong(id) {
+  if (DEBUG) console.log("pg.playlist.dal.deleteSong()");
+  const sql = `DELETE FROM public."Playlist" WHERE id = $1;`;
+  try {
+    let result = await dal.query(sql, [id]);
+    if (DEBUG) console.log(result);
+    return result.rowCount;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
 
 module.exports = {
   getSongs,
   addSong,
   getSongById,
-  // patchSong,
-  // deleteSong,
+  patchSong,
+  deleteSong,
 };

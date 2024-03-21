@@ -17,7 +17,7 @@
                     <%= " - " %>
                     <i><%=song.album %></i>
                     <%= " (" + song.duration + ") "%>
-                    <a href="/playlist/<%=song.id%>/edit?title=<%=song.title%>&artist=<%=song.artist%>">edit</a>
+                    <a href="/playlist/<%=song.id%>/edit?title=<%=song.title%>&artist=<%=song.artist%>&album=<%=song.album%>&duration=<%=song.duration%>">edit</a>
                     <a href="/playlist/<%=song.id%>/delete?title=<%=song.title%>">delete</a></br> 
                     <% }) %>
             <% } %>
