@@ -3,7 +3,7 @@
   <a href="/" id="home-hover">[home]</a>
   <a href="/playlist" id="playlist-hover">[playlist]</a>
   <a href="/api/playlist" id="api-hover">[api]</a>
-  <p id="hover-output">--</p>
+  <p id="hover-output" style="font-size: small; color: #375">--</p>
   <script>
     function handleHover(elementId, message) {
       const element = document.querySelector(elementId);
@@ -20,6 +20,6 @@
 
     handleHover("#api-hover", "See playlist in API format");
     handleHover("#playlist-hover", "See playlist in HTML format");
-    handleHover("#home-hover", "You are here, kemosabe!");
+    handleHover("#home-hover", "Go Home!");
   </script>
 </nav>

@@ -1,6 +1,6 @@
 <html lang="en">
     <%- include('./partials/head.ejs') %>
-    <body>
+    <body style="background-color: skyblue;">
         <%- include('./partials/nav.ejs') %>
         <div class="delete content">
             <form action="/playlist/<%= locals.theId %>?_method=DELETE" method="POST">

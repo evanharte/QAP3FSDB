@@ -1,15 +1,21 @@
 <html lang="en">
     <%- include('./partials/head.ejs') %>
-    <body>
+    <body style="background-color: skyblue;">
         <%- include('./partials/nav.ejs') %>
         <div class="edit content">
             <form action="/playlist/<%= locals.theId %>?_method=PATCH" method="POST">
-                <label>Edit Fields:</br>
-                    <input type="text" name="title" value="<%= locals.title %>" required>
-                    <input type="text" name="artist" value="<%= locals.artist %>" required>
-                    <input type="text" name="album" value="<%= locals.album %>" required>
-                    <input type="text" name="duration" value="<%= locals.duration %>" required>
-                </label></br>
+                <b><u><label>Edit Fields:</label></b></u>
+                </br><br>
+                <label for="title">title: </label>
+                <input type="text" name="title" value="<%= locals.title %>" required>
+                <label for="artist">artist: </label>
+                <input type="text" name="artist" value="<%= locals.artist %>" required>
+                <br><br>
+                <label for="album">album: </label>
+                <input type="text" name="album" value="<%= locals.album %>" required>
+                <label for="duration">duration: </label>
+                <input type="text" name="duration" value="<%= locals.duration %>" required>
+                </br><br>
                 <button>PATCH</button>
             </form>
         </div>
