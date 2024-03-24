@@ -21,20 +21,22 @@
                     <a href="/playlist/<%=song.id%>/delete?title=<%=song.title%>">delete</a></br> 
                     <% }) %>
             <% } %>
-            </br><label>Add Song:</label></br>
+            </br>
+            <b><u><label>Add Song:</label></b></u></br><br>
             <label>Title:
                 <input type="text" id="title" name="title" value="<%= locals.title %>" required>
             </label>
             <label>Artist:
                 <input type="text" id="artist" name="artist" value="<%= locals.artist %>" required>
             </label>
+            <br><br>
             <label>Album:
                 <input type="text" id="album" name="album" value="<%= locals.album %>" required>
             </label>
             <label>Duration:
                 <input type="text" id="duration" name="duration" value="<%= locals.duration %>" required>
             </label>
-            </br>
+            </br><br>
             <button>POST</button>
         </form>
         </div>

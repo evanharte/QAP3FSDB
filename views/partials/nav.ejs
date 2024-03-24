@@ -1,6 +1,25 @@
 <nav>
-  <h1>Playlist Editor App</h1>
-  <a href="/">[home]</a>
-  <a href="/playlist">[playlist]</a>
-  <br /><br />
+  <h1 id="bounceText">Playlist Editor App</h1>
+  <a href="/" id="home-hover">[home]</a>
+  <a href="/playlist" id="playlist-hover">[playlist]</a>
+  <a href="/api/playlist" id="api-hover">[api]</a>
+  <p id="hover-output">--</p>
+  <script>
+    function handleHover(elementId, message) {
+      const element = document.querySelector(elementId);
+      const output = document.querySelector("#hover-output");
+
+      element.addEventListener("mouseover", () => {
+        output.innerHTML = message;
+      });
+
+      element.addEventListener("mouseout", () => {
+        output.innerHTML = " -- ";
+      });
+    }
+
+    handleHover("#api-hover", "See playlist in API format");
+    handleHover("#playlist-hover", "See playlist in HTML format");
+    handleHover("#home-hover", "You are here, kemosabe!");
+  </script>
 </nav>

@@ -1,7 +1,7 @@
 const dal = require("./pg.auth_db");
 
 var getSongs = function () {
-  if (DEBUG) console.log("logins.pg.dal.getLogins()");
+  if (DEBUG) console.log("playlist.pg.dal.getSongs()");
   return new Promise(function (resolve, reject) {
     const sql = `SELECT id, title, artist, album, duration FROM public."Playlist" \ 
     ORDER BY id DESC;`;
