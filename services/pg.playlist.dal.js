@@ -4,7 +4,7 @@ var getSongs = function () {
   if (DEBUG) console.log("playlist.pg.dal.getSongs()");
   return new Promise(function (resolve, reject) {
     const sql = `SELECT id, title, artist, album, duration FROM public."Playlist" \ 
-    ORDER BY id DESC;`;
+    ORDER BY id;`;
     dal.query(sql, [], (err, result) => {
       if (err) {
         if (DEBUG) console.log(err);
@@ -33,7 +33,7 @@ async function addSong(title, artist, album, duration) {
   const sql = `INSERT INTO public."Playlist"(title, artist, album, duration) VALUES ($1, $2, $3, $4) RETURNING id;`;
   try {
     let result = await dal.query(sql, [title, artist, album, duration]);
-    if (DEBUG) console.log(result);
+    if (DEBUG) console.log(result.rows);
     return result.rows[0].id;
   } catch (error) {
     if (error.code === "23505") return error.code;
