@@ -1,0 +1,20 @@
+### Test Plan
+1.) Test the '/' route: I can see a Welcome / home page with nav options to view the 'playlist' in HTML format and the 'playlist' in JSON format (API).
+
+2.) When I hover the mouse over the '[home]' nav option text appears just below it reading 'Go Home!'. For '[playlist]', it reads 'See playlist in HTML format'. for '[api]', it reads 'See playlist in api format'.
+
+3.) Test the '/playlist route: when I click on the 'playlist' nav option, it takes me to the '/playlist' route displaying a new web page with the heading 'Your Playlist'.
+
+4.) The '/playlist' route successfully calls the song data from the 'Playlist' table in the 'Playlist' database (I can see a list of songs and their details).
+
+5.) Test the 'post' (Add Song) functionality: I can add a new song to the 'Playlist' table in the 'Playlist' database by filling in the text input fields and pressing 'POST'. The new song is also added to the list of songs on the '/playlist' page.
+
+6.) Test the 'edit' functionality: I can edit a song from the 'Playlist' table by clicking the 'edit' button next to the song I want to edit. The song details are displayed in the input fields on a new page and I can edit them. When I press 'PATCH', the song is updated in the database and in the list of songs on the '/playlist' page. The 'PATCH' button also successfully redirects me back to the '/playlist' page.
+
+7.) Test the 'delete' functionality: I can delete a song from the 'Playlist' table by clicking the 'delete' button next to the song I want to delete. When I click 'delete', I am redirected to a page that prompts 'Are you sure you want to delete this song?'. Clicking the 'DELETE' button successfully removes the song from the database and from the list of songs on the '/playlist' page. The 'DELETE' button also successfully redirects me back to the '/playlist' page.
+
+8.) Test the '/playlist/:id' route: I can extend the '/playlist' route to 'playlist/:id' including a song's unique 'id'. This redirects me to a new page with just that song's information.
+
+9.) Test the '/api' route: when I click on the 'api' nav option, it takes me to the '/api/playlist' route displaying the 'Playlist' table data in api/JSON format.
+
+10.) Test the '/api/playlist/:id' route: I can extend the '/api/playlist' route to 'api/playlist/:id' including a song's unique 'id'. This redirects me to a new page with just that song's information in api/JSON format.
